@@ -23,7 +23,7 @@ export default function CreateCustomerButton() {
       }
     >
       <PlusCircle className="w-4 h-4" />
-      Nouvel Utilisateur
+      Nouveau client
     </Button>
   );
 }
