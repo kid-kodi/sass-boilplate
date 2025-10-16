@@ -44,12 +44,15 @@ export function OrganizationSwitcher({
       onValueChange={handleChangeOrganization}
       value={activeOrganization?.id}
     >
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="" className="font-bold"/>
+      <SelectTrigger className="w-[180px] font-semibold">
+        <SelectValue placeholder="" />
       </SelectTrigger>
       <SelectContent>
         {organizations.map((organization) => (
-          <SelectItem key={organization.id} value={organization.id}>
+          <SelectItem
+            className="font-semibold"
+            key={organization.id}
+            value={organization.id}>
             {organization.name}
           </SelectItem>
         ))}
