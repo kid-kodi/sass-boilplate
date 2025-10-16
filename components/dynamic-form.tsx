@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarIcon, Pencil } from "lucide-react";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { ControllerRenderProps, useForm } from "react-hook-form";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -27,7 +27,7 @@ interface DynamicFormProps {
   initialData: string;
   id: string;
   fieldName: string;
-  updateFunction: (id: string, fieldName: string, value: any) => Promise<{ success: boolean }>;
+  updateFunction: (id: string, fieldName: string, value: string) => Promise<{ success: boolean }>;
   label?: string;
   placeholder?: string;
   validationSchema?: z.ZodSchema;
@@ -89,7 +89,9 @@ export default function DynamicForm({
     }
   };
 
-  const renderInput = (field: any) => {
+  const renderInput = (field: ControllerRenderProps<{
+    value: string;
+  }, "value">) => {
     const inputProps = {
       disabled: isSubmitting,
       placeholder,
@@ -164,10 +166,10 @@ export default function DynamicForm({
   };
 
   const displayValue = initialData !== undefined && initialData !== null
-  ? inputType === "select" 
-    ? options?.find(opt => opt.value === initialData)?.title || "Non défini"
-    : String(initialData)
-  : "Non défini";
+    ? inputType === "select"
+      ? options?.find(opt => opt.value === initialData)?.title || "Non défini"
+      : String(initialData)
+    : "Non défini";
 
   return (
     <div className={className}>

@@ -10,7 +10,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { lastLoginMethod, organization } from "better-auth/plugins";
 import { Resend } from "resend";
-import { admin, member, owner } from "./auth/permissions";
+import { admin, member, owner, super_admin } from "./auth/permissions";
 
 import { stripe } from "@better-auth/stripe"
 import Stripe from "stripe"
@@ -92,14 +92,15 @@ export const auth = betterAuth({
       roles: {
         owner,
         admin,
-        member
+        member,
+        super_admin
       }
     }),
     stripe({
       stripeClient,
       stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
       createCustomerOnSignUp: true,
-      onCustomerCreate: async ({ stripeCustomer, user }, request) => {
+      onCustomerCreate: async ({ stripeCustomer, user }) => {
         // Do something with the newly created Stripe customer
         console.log(`Stripe customer ${stripeCustomer.id} created for user ${user.id}`);
       },

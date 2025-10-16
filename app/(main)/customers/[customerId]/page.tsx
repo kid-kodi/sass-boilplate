@@ -2,7 +2,6 @@ import DynamicForm from '@/components/dynamic-form';
 import { Button } from '@/components/ui/button';
 import { getSingleCustomer, updateCourseField } from '@/server/customers';
 import { Activity, BellElectric, FileUser } from 'lucide-react';
-import Link from 'next/link';
 import React from 'react'
 
 // Définition des options sans as const
@@ -108,7 +107,7 @@ export default async function SingleCustomerPage({
           <div>
             <div className="flex items-center gap-x-2">
               <BellElectric />
-              <div className="text-xl lowercase font-bold">Informations d'Adresse</div>
+              <div className="text-xl lowercase font-bold">Informations d&apos;Adresse</div>
             </div>
 
             <DynamicForm

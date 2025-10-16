@@ -9,8 +9,7 @@ import { CreateCustomerSchema } from '@/lib/validations/customer';
 import type { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -131,7 +130,7 @@ export default function CustomerForm({ data }: { data?: Customer }) {
                 name="taxIdentificationNumber"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Numéro d'Identification Fiscale</FormLabel>
+                    <FormLabel>Numéro d&apos;Identification Fiscale</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -207,7 +206,7 @@ export default function CustomerForm({ data }: { data?: Customer }) {
                 name="activityStartDate"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Date de Début d'Activité *</FormLabel>
+                    <FormLabel>Date de Début d&apos;Activité *</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -359,7 +358,7 @@ export default function CustomerForm({ data }: { data?: Customer }) {
                 name="fiscalYearStart"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Début d'Exercice *</FormLabel>
+                    <FormLabel>Début d&apos;Exercice *</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -398,7 +397,7 @@ export default function CustomerForm({ data }: { data?: Customer }) {
                 name="fiscalYearEnd"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Fin d'Exercice *</FormLabel>
+                    <FormLabel>Fin d&apos;Exercice *</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -436,7 +435,7 @@ export default function CustomerForm({ data }: { data?: Customer }) {
 
           {/* Section Adresse Complète */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Informations d'Adresse Complète</h3>
+            <h3 className="text-lg font-semibold">Informations d&apos;Adresse Complète</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}

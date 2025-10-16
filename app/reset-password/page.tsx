@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from 'react'
 
 import { ResetPasswordForm } from "@/components/forms/reset-password-form";
 import { GalleryVerticalEnd } from "lucide-react";
@@ -13,7 +14,9 @@ export default function ResetPasswordPage() {
           </div>
           Acme Inc.
         </Link>
-        <ResetPasswordForm />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ResetPasswordForm />
+        </Suspense>
       </div>
     </div>
   );

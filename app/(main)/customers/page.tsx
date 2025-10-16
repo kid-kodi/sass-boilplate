@@ -6,12 +6,6 @@ import { columns } from './columns';
 import { DataTable } from '@/components/commons/table/data-table';
 import Pagination from '@/components/commons/table/pagination';
 
-type Props = {
-  searchParams?: Promise<{
-    query?: string;
-    page?: string;
-  }>;
-};
 
 export default async function CustomersPage() {
   const customers = await getCustomers();

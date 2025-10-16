@@ -27,8 +27,6 @@ type UserDisplay = {
   emailVerified: boolean;
   name: string;
   image: string | null;
-  stripeCustomerId: string | null;
-  role?: string; // Optionnel, si jamais il est mis à jour plus tard
 };
 
 export default function UserButton() {
@@ -48,9 +46,7 @@ export default function UserButton() {
       if (data?.user) {
         setUser({
           ...data.user,
-          image: data.user.image ?? "",
-          stripeCustomerId: (data.user as any).stripeCustomerId ?? null,
-          role: (data.user as any).role ?? undefined,
+          image: data.user.image ?? ""
         });
       }
       setIsLoading(false)
@@ -59,7 +55,6 @@ export default function UserButton() {
 
   useEffect(() => {
     getUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const logout = async () => {
@@ -101,19 +96,8 @@ export default function UserButton() {
               {/* Correction : user.role peut être undefined */}
               <DropdownMenuLabel>
                 Mon Compte
-                {user.role && (
-                  <>
-                    {" "}(<span>{user.role}</span>)
-                  </>
-                )}
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              {/* Correction : Vérifier la présence de user.role */}
-              {user?.role === "ADMIN" && (
-                <DropdownMenuItem asChild>
-                  <Link href={"/studio/dashboard"}>Accéder à la console</Link>
-                </DropdownMenuItem>
-              )}
               <DropdownMenuItem asChild>
                 <Link href={"/profile"}>Mon profile</Link>
               </DropdownMenuItem>

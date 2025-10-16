@@ -4,8 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 
 import { Edit, Eye, MoreHorizontal, Trash } from "lucide-react";
 
-import { format, formatDistanceToNow } from 'date-fns';
-import { fr } from 'date-fns/locale';
+import { format } from 'date-fns';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,8 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
-import clsx from "clsx";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSingleCustomer, deleteCustomer } from "@/server/customers";
